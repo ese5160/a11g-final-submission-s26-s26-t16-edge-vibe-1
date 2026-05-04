@@ -13,6 +13,8 @@
 
 ## 1. Video Presentation
 
+[YouTube](https://youtu.be/Ss6HNHeCM7A?si=TsuxYX3sHuUKEZ4x)
+
 ## 2. Project Summary
 
 ##### **Device Description**
@@ -105,7 +107,6 @@ Through ESE5160, I learned how to design and build a complete embedded system fr
 * **SRS-06:** Wi-Fi communication with the Node-RED dashboard worked successfully for data exchange.
 
 ## 4. Project Photos & Screenshots
-
 
 **Final project**
 
