@@ -1,67 +1,335 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Edge Vibe</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f172a, #2563eb);
-      color: white;
-      text-align: center;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .hero {
-      padding: 100px 20px;
-    }
+<title>Edge Vibe</title>
 
-    h1 {
-      font-size: 60px;
-      margin-bottom: 10px;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    p {
-      font-size: 22px;
-      max-width: 700px;
-      margin: auto;
-    }
+<style>
 
-    .card {
-      background: rgba(255,255,255,0.12);
-      margin: 40px auto;
-      padding: 30px;
-      border-radius: 20px;
-      max-width: 800px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    button {
-      padding: 14px 28px;
-      border: none;
-      border-radius: 30px;
-      background: white;
-      color: #2563eb;
-      font-size: 18px;
-      cursor: pointer;
-      margin-top: 30px;
-    }
-  </style>
+body{
+    font-family:'Poppins',sans-serif;
+    background:#0f172a;
+    color:white;
+    overflow-x:hidden;
+}
+
+section{
+    padding:80px 10%;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:
+    linear-gradient(rgba(15,23,42,0.8),rgba(15,23,42,0.95)),
+    url("YOUR_MAIN_IMAGE.png");
+    background-size:cover;
+    background-position:center;
+}
+
+.hero h1{
+    font-size:70px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:900px;
+    font-size:22px;
+    line-height:1.7;
+}
+
+.btn{
+    margin-top:40px;
+    padding:16px 40px;
+    border-radius:40px;
+    border:none;
+    background:#38bdf8;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+.section-title{
+    font-size:42px;
+    margin-bottom:40px;
+    color:#38bdf8;
+}
+
+.card{
+    background:#1e293b;
+    padding:40px;
+    border-radius:25px;
+    margin-top:30px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.4);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+img{
+    width:100%;
+    border-radius:20px;
+    margin-top:20px;
+}
+
+iframe{
+    width:100%;
+    height:600px;
+    border:none;
+    border-radius:25px;
+}
+
+ul{
+    margin-left:20px;
+    line-height:2;
+}
+
+a{
+    color:#38bdf8;
+    text-decoration:none;
+}
+
+.footer{
+    text-align:center;
+    padding:50px;
+    color:#94a3b8;
+}
+
+</style>
 </head>
 
 <body>
-  <div class="hero">
-    <h1>Edge Vibe</h1>
-    <p>A smart edge-computing project built by Team 16.</p>
 
-    <button>Explore Project</button>
+<section class="hero">
 
-    <div class="card">
-      <h2>About Our Project</h2>
-      <p>
-        This website presents our final project, team information,
-        system design, implementation, results, and demo.
-      </p>
-    </div>
-  </div>
+<h1>Edge Vibe</h1>
+
+<p>
+Interactive IoT-based spelling and learning system using Silicon Labs SiWG917Y,
+Node-RED cloud dashboard, OLED feedback, wireless connectivity,
+and custom PCB + enclosure design.
+</p>
+
+<button class="btn">
+Explore Project
+</button>
+
+</section>
+
+<section>
+
+<h2 class="section-title">Project Demo</h2>
+
+<div class="card">
+
+<!-- Replace VIDEO_ID -->
+<iframe
+src="https://youtu.be/Ss6HNHeCM7A?si=TsuxYX3sHuUKEZ4x">
+</iframe>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">Device Description</h2>
+
+<div class="card">
+
+<p>
+Our device is an interactive spelling and learning system designed
+to help users practice word recognition and spelling through visual
+and audio feedback.
+</p>
+
+<br>
+
+<p>
+The system integrates sensors, OLED display, cloud connectivity,
+custom PCB hardware, and Node-RED dashboards to create a modern
+educational experience.
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">System Block Diagram</h2>
+
+<div class="card">
+
+<img src="images/block_diagram.png">
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">Hardware & Software Requirements</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Hardware</h3>
+
+<ul>
+<li>SiWG917Y MCU</li>
+<li>OLED Display</li>
+<li>Ambient Light Sensor</li>
+<li>Custom PCB</li>
+<li>Buzzer Feedback</li>
+<li>Wi-Fi Connectivity</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Software</h3>
+
+<ul>
+<li>Embedded C Firmware</li>
+<li>Node-RED Dashboard</li>
+<li>MQTT Communication</li>
+<li>Azure-hosted backend</li>
+<li>Real-time monitoring</li>
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">Final Device</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="images/final_project.png">
+</div>
+
+<div class="card">
+<img src="images/3d_print.png">
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">PCB Design</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>PCB Top</h3>
+<img src="images/pcba_top.png">
+</div>
+
+<div class="card">
+<h3>PCB Bottom</h3>
+<img src="images/pcba_bottom.png">
+</div>
+
+<div class="card">
+<h3>Altium 2D</h3>
+<img src="images/altium_2d.png">
+</div>
+
+<div class="card">
+<h3>Altium 3D</h3>
+<img src="images/altium_3d.png">
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">Node-RED Dashboard</h2>
+
+<div class="card">
+
+<img src="images/node_red_dashboard.png">
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">Thermal Testing</h2>
+
+<div class="card">
+
+<img src="images/thermal.png">
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">Codebase</h2>
+
+<div class="card">
+
+<p>
+<a href="YOUR_FIRMWARE_LINK">
+Embedded Firmware Code
+</a>
+</p>
+
+<br>
+
+<p>
+<a href="YOUR_NODE_RED_LINK">
+Node-RED Dashboard Code
+</a>
+</p>
+
+</div>
+
+</section>
+
+<div class="footer">
+
+Edge Vibe — ESE5160 Final Project
+
+</div>
+
 </body>
 </html>
