@@ -69,6 +69,15 @@ section{
     transform:scale(1.05);
 }
 
+.gallery-toggle{
+    display:flex;
+    justify-content:center;
+}
+
+.hidden{
+    display:none;
+}
+
 .section-title{
     font-size:42px;
     margin-bottom:40px;
@@ -211,12 +220,14 @@ educational experience.
 <h3>Hardware</h3>
 
 <ul>
-<li>SiWG917Y MCU</li>
-<li>OLED Display</li>
-<li>Ambient Light Sensor</li>
-<li>Custom PCB</li>
-<li>Buzzer Feedback</li>
-<li>Wi-Fi Connectivity</li>
+<li><strong>HRS-01:</strong> The SiWG917Y MCU successfully handled system control and Wi-Fi communication.</li>
+<li><strong>HRS-02:</strong> The system supports 16 letters instead of 26 due to GPIO limitations and multiplexer constraints.</li>
+<li><strong>HRS-03:</strong> Digital multiplexer and letter decoding worked reliably for the supported inputs.</li>
+<li><strong>HRS-04:</strong> The ambient light sensor functioned correctly and data was displayed on the dashboard with low-light alerts.</li>
+<li><strong>HRS-05:</strong> OLED display worked, showing simple animation according to the user input.</li>
+<li><strong>HRS-06:</strong> The magnetic buzzer provided reliable audio feedback for system events.</li>
+<li><strong>HRS-07:</strong> Base lighting was not implemented and was replaced with a dashboard-based feedback mechanism.</li>
+<li><strong>HRS-08:</strong> Control buttons functioned correctly after redesign and simplification.</li>
 </ul>
 
 </div>
@@ -226,11 +237,12 @@ educational experience.
 <h3>Software</h3>
 
 <ul>
-<li>Embedded C Firmware</li>
-<li>Node-RED Dashboard</li>
-<li>MQTT Communication</li>
-<li>Azure-hosted backend</li>
-<li>Real-time monitoring</li>
+<li><strong>SRS-01:</strong> Letter tile detection latency met the &le;100 ms requirement during testing.</li>
+<li><strong>SRS-02:</strong> Letter encoding and recognition worked correctly for the supported 16-letter subset.</li>
+<li><strong>SRS-03:</strong> The system correctly validated user input against the target word.</li>
+<li><strong>SRS-04:</strong> Feedback was provided within the required 500 ms timeframe.</li>
+<li><strong>SRS-05:</strong> The OLED display reliably showed target words and system status.</li>
+<li><strong>SRS-06:</strong> Wi-Fi communication with the Node-RED dashboard worked successfully for data exchange.</li>
 </ul>
 
 </div>
@@ -282,6 +294,36 @@ educational experience.
 <div class="card">
 <h3>Altium 3D</h3>
 <img src="image/README/1777866954688.png" alt="Altium board design 3D top">
+</div>
+
+</div>
+
+<div class="gallery-toggle">
+<button class="btn" id="pcbGalleryButton" type="button" aria-expanded="false" aria-controls="pcbGallery">
+Show All PCB Pictures
+</button>
+</div>
+
+<div class="grid hidden" id="pcbGallery">
+
+<div class="card">
+<h3>Altium 2D Flipped</h3>
+<img src="image/README/1777866913735.png" alt="Altium board design 2D flipped">
+</div>
+
+<div class="card">
+<h3>Top Layer</h3>
+<img src="image/README/1777866927223.png" alt="Altium board design top layer">
+</div>
+
+<div class="card">
+<h3>Bottom Layer</h3>
+<img src="image/README/1777866939334.png" alt="Altium board design bottom layer">
+</div>
+
+<div class="card">
+<h3>Altium 3D Bottom</h3>
+<img src="image/README/1777866964015.png" alt="Altium board design 3D bottom">
 </div>
 
 </div>
@@ -358,6 +400,17 @@ Final Submission Repository
 Edge Vibe — ESE5160 Final Project
 
 </div>
+
+<script>
+const pcbGalleryButton = document.getElementById('pcbGalleryButton');
+const pcbGallery = document.getElementById('pcbGallery');
+
+pcbGalleryButton.addEventListener('click', () => {
+    const isHidden = pcbGallery.classList.toggle('hidden');
+    pcbGalleryButton.textContent = isHidden ? 'Show All PCB Pictures' : 'Hide PCB Pictures';
+    pcbGalleryButton.setAttribute('aria-expanded', String(!isHidden));
+});
+</script>
 
 </body>
 </html>
