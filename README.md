@@ -2,9 +2,9 @@
 
 # a11g-final-submission
 
-**Team Number:**
+**Team Number: 16**
 
-**Team Name:**
+**Team Name: Edge Vibe**
 
 | Team Member Name | Email Address | GitHub Username |
 | ---------------- | ------------- | --------------- |
