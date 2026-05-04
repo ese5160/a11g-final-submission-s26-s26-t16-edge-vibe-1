@@ -9,7 +9,7 @@
 | Aktilek Skakova  | skakova@seas.upenn.edu  | skakova-aktilek |
 | Yuhan Wang       | yyhhwang@seas.upenn.edu | yhwang0523      |
 
-**GitHub Repository URL:   [GitHub](https://github.com/ese5160/a11g-final-submission-s26-s26-t16-edge-vibe)**
+**GitHub Repository URL:   [GitHub](https://github.com/ese5160/a11g-final-submission-s26-s26-t16-edge-vibe-1)**
 
 ## 1. Video Presentation
 
