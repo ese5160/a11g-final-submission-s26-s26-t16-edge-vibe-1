@@ -7,108 +7,286 @@
 <title>Edge Vibe</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family:'Poppins',sans-serif;
-    background:#0f172a;
-    color:white;
+    background:#0b1220;
+    color:#f8fafc;
     overflow-x:hidden;
 }
 
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    background:
+        linear-gradient(135deg, rgba(56,189,248,0.18), transparent 34%),
+        linear-gradient(180deg, #0b1220 0%, #10243a 42%, #0b1220 100%);
+}
+
 section{
-    padding:80px 10%;
+    padding:90px 8%;
+}
+
+.topbar{
+    position:sticky;
+    top:0;
+    z-index:10;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    padding:16px 8%;
+    background:rgba(11,18,32,0.88);
+    border-bottom:1px solid rgba(148,163,184,0.18);
+    backdrop-filter:blur(16px);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#f8fafc;
+    font-weight:800;
+}
+
+.brand-mark{
+    display:grid;
+    place-items:center;
+    width:42px;
+    height:42px;
+    border-radius:8px;
+    background:#38bdf8;
+    color:#082f49;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    flex-wrap:wrap;
+}
+
+.nav-links a{
+    color:#cbd5e1;
+    font-size:15px;
+    font-weight:500;
+}
+
+.nav-links a:hover{
+    color:#38bdf8;
 }
 
 .hero{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+    min-height:calc(100vh - 74px);
+    display:grid;
+    grid-template-columns:minmax(0,1.12fr) minmax(360px,0.88fr);
     align-items:center;
-    text-align:center;
-    background:
-    linear-gradient(rgba(15,23,42,0.8),rgba(15,23,42,0.95)),
-    url("image/README/1777866328852.png");
-    background-size:cover;
-    background-position:center;
+    gap:56px;
+    padding-top:78px;
+}
+
+.eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    width:max-content;
+    padding:10px 14px;
+    border:1px solid rgba(148,163,184,0.28);
+    border-radius:999px;
+    background:rgba(30,41,59,0.7);
+    color:#dbeafe;
+    font-size:14px;
+    margin-bottom:26px;
+}
+
+.status-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#22c55e;
+    box-shadow:0 0 20px rgba(34,197,94,0.7);
 }
 
 .hero h1{
-    font-size:70px;
-    margin-bottom:20px;
+    max-width:820px;
+    font-size:104px;
+    line-height:0.95;
+    letter-spacing:0;
+    margin-bottom:26px;
 }
 
-.hero p{
-    max-width:900px;
-    font-size:22px;
-    line-height:1.7;
+.hero-copy{
+    max-width:760px;
+    color:#cbd5e1;
+    font-size:20px;
+    line-height:1.8;
 }
 
 .team-names{
     margin-top:22px;
-    color:#cbd5e1;
-    font-size:20px;
-    font-weight:600;
+    color:#e2e8f0;
+    font-size:18px;
+    font-weight:700;
+}
+
+.hero-actions{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:34px;
 }
 
 .btn{
-    margin-top:40px;
-    padding:16px 40px;
-    border-radius:40px;
-    border:none;
-    background:#38bdf8;
-    color:white;
-    font-size:18px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:48px;
+    padding:14px 24px;
+    border-radius:999px;
+    border:1px solid rgba(148,163,184,0.28);
+    background:rgba(30,41,59,0.82);
+    color:#f8fafc;
+    font-size:15px;
+    font-weight:800;
     cursor:pointer;
-    transition:0.3s;
+    transition:transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.btn.primary{
+    background:#38bdf8;
+    color:#062235;
+    border-color:#38bdf8;
 }
 
 .btn:hover{
-    transform:scale(1.05);
+    transform:translateY(-2px);
+    border-color:rgba(56,189,248,0.7);
 }
 
-.gallery-toggle{
-    display:flex;
-    justify-content:center;
+.hero-panel{
+    overflow:hidden;
+    border:1px solid rgba(148,163,184,0.24);
+    border-radius:8px;
+    background:rgba(30,41,59,0.76);
+    box-shadow:0 24px 70px rgba(0,0,0,0.32);
 }
 
-.hidden{
-    display:none !important;
+.hero-panel img{
+    display:block;
+    width:100%;
+    height:390px;
+    object-fit:cover;
+    margin:0;
+    border-radius:0;
+}
+
+.feature-strip{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    padding:16px;
+}
+
+.feature-chip{
+    padding:16px;
+    border:1px solid rgba(148,163,184,0.22);
+    border-radius:8px;
+    background:rgba(15,23,42,0.35);
+}
+
+.feature-chip strong{
+    display:block;
+    color:#f8fafc;
+    font-size:18px;
+}
+
+.feature-chip span{
+    color:#cbd5e1;
+    font-size:13px;
+}
+
+.section-heading{
+    display:grid;
+    grid-template-columns:minmax(0,0.85fr) minmax(280px,1fr);
+    gap:34px;
+    align-items:end;
+    margin-bottom:30px;
 }
 
 .section-title{
-    font-size:42px;
-    margin-bottom:40px;
-    color:#38bdf8;
+    font-size:58px;
+    line-height:1;
+    color:#f8fafc;
+}
+
+.section-lead{
+    color:#cbd5e1;
+    font-size:18px;
+    line-height:1.7;
 }
 
 .card{
-    background:#1e293b;
-    padding:40px;
-    border-radius:25px;
-    margin-top:30px;
-    box-shadow:0 10px 40px rgba(0,0,0,0.4);
+    background:rgba(30,41,59,0.78);
+    padding:30px;
+    border-radius:8px;
+    border:1px solid rgba(148,163,184,0.18);
+    box-shadow:0 14px 42px rgba(0,0,0,0.22);
+}
+
+.card h3{
+    margin-bottom:14px;
+    color:#f8fafc;
+    font-size:22px;
+}
+
+.card p{
+    color:#cbd5e1;
+    line-height:1.75;
 }
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+    gap:24px;
+}
+
+.summary-card{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:18px;
+}
+
+.number{
+    display:grid;
+    place-items:center;
+    width:48px;
+    height:48px;
+    border-radius:8px;
+    border:1px solid rgba(56,189,248,0.35);
+    background:rgba(56,189,248,0.16);
+    color:#67e8f9;
+    font-weight:800;
 }
 
 img{
     width:100%;
-    border-radius:20px;
-    margin-top:20px;
+    border-radius:8px;
+    margin-top:18px;
 }
 
 .small-photo{
@@ -120,16 +298,32 @@ img{
     margin-right:auto;
 }
 
+.media-card img{
+    height:250px;
+    object-fit:cover;
+}
+
+.diagram-card img,
+.dashboard-card img,
+.thermal-card img{
+    background:#f8fafc;
+}
+
 iframe{
     width:100%;
-    height:600px;
+    height:620px;
     border:none;
-    border-radius:25px;
+    border-radius:8px;
 }
 
 ul{
     margin-left:20px;
-    line-height:2;
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+li{
+    margin-bottom:10px;
 }
 
 a{
@@ -137,99 +331,260 @@ a{
     text-decoration:none;
 }
 
-.footer{
-    text-align:center;
-    padding:50px;
-    color:#94a3b8;
+.gallery-toggle{
+    display:flex;
+    justify-content:center;
+    margin:34px 0 10px;
 }
 
+.hidden{
+    display:none !important;
+}
+
+.link-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:16px;
+}
+
+.link-card{
+    display:block;
+    padding:22px;
+    border-radius:8px;
+    border:1px solid rgba(148,163,184,0.18);
+    background:rgba(15,23,42,0.35);
+    color:#f8fafc;
+    font-weight:800;
+}
+
+.link-card span{
+    display:block;
+    margin-top:6px;
+    color:#cbd5e1;
+    font-size:13px;
+    font-weight:500;
+}
+
+.footer{
+    text-align:center;
+    padding:44px 8%;
+    color:#94a3b8;
+    border-top:1px solid rgba(148,163,184,0.18);
+}
+
+@media (max-width:900px){
+    .topbar{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .hero,
+    .section-heading{
+        grid-template-columns:1fr;
+    }
+
+    .hero-panel img{
+        height:300px;
+    }
+
+    .feature-strip{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:72px;
+    }
+
+    .section-title{
+        font-size:48px;
+    }
+}
+
+@media (max-width:560px){
+    section{
+        padding:70px 6%;
+    }
+
+    .nav-links{
+        gap:16px;
+    }
+
+    .hero h1{
+        font-size:52px;
+    }
+
+    .section-title{
+        font-size:40px;
+    }
+
+    iframe{
+        height:320px;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<section class="hero">
+<header class="topbar">
+<a class="brand" href="#overview">
+<span class="brand-mark">EV</span>
+<span>Edge Vibe - T16</span>
+</a>
+
+<nav class="nav-links" aria-label="Primary navigation">
+<a href="#overview">Overview</a>
+<a href="#system">System</a>
+<a href="#requirements">Requirements</a>
+<a href="#gallery">Gallery</a>
+<a href="#codebase">Codebase</a>
+</nav>
+</header>
+
+<main>
+
+<section class="hero" id="overview">
+<div>
+<div class="eyebrow">
+<span class="status-dot"></span>
+ESE 5160 IoT Edge Computing - Final Project
+</div>
 
 <h1>Edge Vibe</h1>
 
-<p>
-Interactive IoT-based spelling and learning system using Silicon Labs SiWG917Y,
-Node-RED cloud dashboard, OLED feedback, wireless connectivity,
-and custom PCB + enclosure design.
+<p class="hero-copy">
+An interactive IoT spelling and learning system that helps users practice word recognition through letter cubes, OLED feedback, audio cues, ambient light sensing, and a cloud-connected Node-RED dashboard.
 </p>
 
 <p class="team-names">
-Aktilek Skakova and Yuhan Wang
+Built by Aktilek Skakova and Yuhan Wang
 </p>
 
-<button class="btn">
-Explore Project
-</button>
+<div class="hero-actions">
+<a class="btn primary" href="http://20.112.17.103:1880/dashboard/page2">Open Live Dashboard</a>
+<a class="btn" href="https://github.com/ese5160/final-project-firmware-s26-t16-edge-vibe/tree/main/rtos">Firmware Repo</a>
+<a class="btn" href="#gallery">View Prototype</a>
+</div>
+</div>
 
+<aside class="hero-panel" aria-label="Edge Vibe prototype preview">
+<img src="image/README/1777866328852.png" alt="Final Edge Vibe prototype">
+<div class="feature-strip">
+<div class="feature-chip">
+<strong>Wi-Fi</strong>
+<span>SiWG917Y connectivity</span>
+</div>
+<div class="feature-chip">
+<strong>Node-RED</strong>
+<span>Live cloud dashboard</span>
+</div>
+<div class="feature-chip">
+<strong>OLED</strong>
+<span>Visual spelling feedback</span>
+</div>
+</div>
+</aside>
 </section>
 
 <section>
+<div class="section-heading">
+<h2 class="section-title">Project Summary</h2>
+<p class="section-lead">
+The device combines embedded sensing, custom hardware, user input, and cloud monitoring to create a responsive spelling practice experience.
+</p>
+</div>
 
+<div class="grid">
+<div class="card summary-card">
+<span class="number">01</span>
+<div>
+<h3>Problem</h3>
+<p>Spelling practice can be passive and slow to correct. Edge Vibe makes each attempt interactive with immediate visual, audio, and dashboard feedback.</p>
+</div>
+</div>
+
+<div class="card summary-card">
+<span class="number">02</span>
+<div>
+<h3>Solution</h3>
+<p>Users build words with letter cubes and buttons while the MCU validates input, updates the OLED display, and reports system state to Node-RED.</p>
+</div>
+</div>
+
+<div class="card summary-card">
+<span class="number">03</span>
+<div>
+<h3>Internet Augmentation</h3>
+<p>The dashboard displays target words, user input, system status, ambient light alerts, and logged spelling errors in real time.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="section-heading">
 <h2 class="section-title">Project Demo</h2>
+<p class="section-lead">A short walkthrough of the final system, hardware, dashboard behavior, and user interaction flow.</p>
+</div>
 
 <div class="card">
-
 <iframe
 src="https://www.youtube.com/embed/Ss6HNHeCM7A"
 title="Edge Vibe project demo"
 allowfullscreen>
 </iframe>
-
 </div>
-
 </section>
 
-<section>
-
-<h2 class="section-title">Device Description</h2>
-
-<div class="card">
-
-<p>
-Our device is an interactive spelling and learning system designed
-to help users practice word recognition and spelling through visual
-and audio feedback.
+<section id="system">
+<div class="section-heading">
+<h2 class="section-title">System</h2>
+<p class="section-lead">
+The system uses a Wi-Fi enabled SiWG917Y MCU, OLED display, ambient light sensor, magnetic buzzer, letter cubes, buttons, and a cloud-hosted Node-RED interface.
 </p>
-
-<br>
-
-<p>
-The system integrates sensors, OLED display, cloud connectivity,
-custom PCB hardware, and Node-RED dashboards to create a modern
-educational experience.
-</p>
-
 </div>
-
-</section>
-
-<section>
-
-<h2 class="section-title">System Block Diagram</h2>
-
-<div class="card">
-
-<img class="small-photo" src="image/README/1777866994589.png" alt="System block diagram">
-
-</div>
-
-</section>
-
-<section>
-
-<h2 class="section-title">Hardware & Software Requirements</h2>
 
 <div class="grid">
+<div class="card">
+<h3>Device Description</h3>
+<p>
+Edge Vibe is an interactive spelling and learning system designed to help users practice word recognition and spelling through visual and audio feedback.
+</p>
+<br>
+<p>
+It integrates sensors, display, cloud connectivity, custom PCB hardware, and a Node-RED dashboard to create a modern educational experience.
+</p>
+</div>
 
 <div class="card">
+<h3>Device Functionality</h3>
+<p>
+Users interact through letter cubes, physical buttons, and the cloud interface. The device displays target words, tracks user input, validates spelling, provides correctness feedback, and logs errors for later analysis.
+</p>
+</div>
+</div>
+</section>
 
-<h3>Hardware</h3>
+<section>
+<div class="section-heading">
+<h2 class="section-title">Block Diagram</h2>
+<p class="section-lead">The system block diagram shows the power, sensing, user input, MCU, actuator, and cloud dashboard architecture.</p>
+</div>
 
+<div class="card diagram-card">
+<img class="small-photo" src="image/README/1777866994589.png" alt="System block diagram">
+</div>
+</section>
+
+<section id="requirements">
+<div class="section-heading">
+<h2 class="section-title">Requirements</h2>
+<p class="section-lead">Final hardware and software requirement results for the completed prototype.</p>
+</div>
+
+<div class="grid">
+<div class="card">
+<h3>Hardware Requirements</h3>
 <ul>
 <li><strong>HRS-01:</strong> The SiWG917Y MCU successfully handled system control and Wi-Fi communication.</li>
 <li><strong>HRS-02:</strong> The system supports 16 letters instead of 26 due to GPIO limitations and multiplexer constraints.</li>
@@ -240,13 +595,10 @@ educational experience.
 <li><strong>HRS-07:</strong> Base lighting was not implemented and was replaced with a dashboard-based feedback mechanism.</li>
 <li><strong>HRS-08:</strong> Control buttons functioned correctly after redesign and simplification.</li>
 </ul>
-
 </div>
 
 <div class="card">
-
-<h3>Software</h3>
-
+<h3>Software Requirements</h3>
 <ul>
 <li><strong>SRS-01:</strong> Letter tile detection latency met the &le;100 ms requirement during testing.</li>
 <li><strong>SRS-02:</strong> Letter encoding and recognition worked correctly for the supported 16-letter subset.</li>
@@ -255,162 +607,147 @@ educational experience.
 <li><strong>SRS-05:</strong> The OLED display reliably showed target words and system status.</li>
 <li><strong>SRS-06:</strong> Wi-Fi communication with the Node-RED dashboard worked successfully for data exchange.</li>
 </ul>
-
 </div>
-
 </div>
-
 </section>
 
-<section>
-
-<h2 class="section-title">Final Device</h2>
+<section id="gallery">
+<div class="section-heading">
+<h2 class="section-title">Prototype Gallery</h2>
+<p class="section-lead">Final device photos, enclosure views, board fabrication, PCB layers, cloud dashboard screenshots, and thermal testing.</p>
+</div>
 
 <div class="grid">
-
-<div class="card">
+<div class="card media-card">
+<h3>Final Device</h3>
 <img src="image/README/1777866328852.png" alt="Final Edge Vibe project">
 </div>
 
-<div class="card">
+<div class="card media-card">
+<h3>3D Printed Enclosure</h3>
 <img src="image/README/1777866423586.png" alt="3D printed enclosure">
+</div>
+
+<div class="card media-card">
+<h3>Enclosure Close-up</h3>
 <img src="image/README/1777866556757.png" alt="3D printed enclosure close-up">
 </div>
-
 </div>
-
 </section>
 
 <section>
-
+<div class="section-heading">
 <h2 class="section-title">PCB Design</h2>
+<p class="section-lead">Physical PCBA images and Altium views for both sides, 2D routing layers, and 3D board renders.</p>
+</div>
 
 <div class="grid">
-
-<div class="card">
+<div class="card media-card">
 <h3>PCB Top</h3>
 <img src="image/README/1777866571173.png" alt="PCBA top">
 </div>
 
-<div class="card">
+<div class="card media-card">
 <h3>PCB Bottom</h3>
 <img src="image/README/1777866870214.png" alt="PCBA bottom">
 </div>
 
-<div class="card">
+<div class="card media-card">
 <h3>Altium 2D</h3>
 <img src="image/README/1777866901540.png" alt="Altium board design 2D all layers">
 </div>
 
-<div class="card">
+<div class="card media-card">
 <h3>Altium 3D</h3>
 <img src="image/README/1777866954688.png" alt="Altium board design 3D top">
 </div>
-
 </div>
 
 <div class="gallery-toggle">
-<button class="btn" id="pcbGalleryButton" type="button" aria-expanded="false" aria-controls="pcbGallery">
+<button class="btn primary" id="pcbGalleryButton" type="button" aria-expanded="false" aria-controls="pcbGallery">
 Show All PCB Pictures
 </button>
 </div>
 
 <div class="grid hidden" id="pcbGallery">
-
-<div class="card">
+<div class="card media-card">
 <h3>Altium 2D Flipped</h3>
 <img src="image/README/1777866913735.png" alt="Altium board design 2D flipped">
 </div>
 
-<div class="card">
+<div class="card media-card">
 <h3>Top Layer</h3>
 <img src="image/README/1777866927223.png" alt="Altium board design top layer">
 </div>
 
-<div class="card">
+<div class="card media-card">
 <h3>Bottom Layer</h3>
 <img src="image/README/1777866939334.png" alt="Altium board design bottom layer">
 </div>
 
-<div class="card">
+<div class="card media-card">
 <h3>Altium 3D Bottom</h3>
 <img src="image/README/1777866964015.png" alt="Altium board design 3D bottom">
 </div>
-
 </div>
-
 </section>
 
 <section>
+<div class="section-heading">
+<h2 class="section-title">Dashboard</h2>
+<p class="section-lead">The cloud interface shows the current target word, built input, low-light alerts, controls, and error tracking.</p>
+</div>
 
-<h2 class="section-title">Node-RED Dashboard</h2>
-
-<div class="card">
-
+<div class="card dashboard-card">
 <img class="small-photo" src="image/README/1777866973979.png" alt="Node-RED dashboard">
-
 </div>
-
 </section>
 
 <section>
-
+<div class="section-heading">
 <h2 class="section-title">Thermal Testing</h2>
+<p class="section-lead">Thermal imaging was used to inspect board behavior and verify that the system remained within a safe operating range.</p>
+</div>
 
-<div class="card">
-
+<div class="card thermal-card">
 <img class="small-photo" src="image/README/1777866882818.png" alt="Thermal camera image">
-
 </div>
-
 </section>
 
-<section>
-
+<section id="codebase">
+<div class="section-heading">
 <h2 class="section-title">Codebase</h2>
-
-<div class="card">
-
-<p>
-<a href="https://github.com/ese5160/final-project-firmware-s26-t16-edge-vibe/tree/main/rtos">
-Embedded Firmware Code
-</a>
-</p>
-
-<br>
-
-<p>
-<a href="https://github.com/ese5160/final-project-firmware-s26-t16-edge-vibe/blob/main/node-red/final_sub_node-red.json">
-Node-RED Dashboard Code
-</a>
-</p>
-
-<br>
-<br>
-
-<p>
-<a href="http://20.112.17.103:1880/dashboard/page2">
-Live Node-RED Dashboard
-</a>
-</p>
-
-<br>
-
-<p>
-<a href="https://github.com/ese5160/a11g-final-submission-s26-s26-t16-edge-vibe-1">
-Final Submission Repository
-</a>
-</p>
-
+<p class="section-lead">Repository links for the embedded firmware, Node-RED flow, live dashboard, and final project submission.</p>
 </div>
 
+<div class="link-grid">
+<a class="link-card" href="https://github.com/ese5160/final-project-firmware-s26-t16-edge-vibe/tree/main/rtos">
+Embedded Firmware
+<span>Final C firmware codebase</span>
+</a>
+
+<a class="link-card" href="https://github.com/ese5160/final-project-firmware-s26-t16-edge-vibe/blob/main/node-red/final_sub_node-red.json">
+Node-RED Code
+<span>Dashboard flow JSON</span>
+</a>
+
+<a class="link-card" href="http://20.112.17.103:1880/dashboard/page2">
+Live Dashboard
+<span>Azure-hosted Node-RED view</span>
+</a>
+
+<a class="link-card" href="https://github.com/ese5160/a11g-final-submission-s26-s26-t16-edge-vibe-1">
+Final Submission
+<span>Website and documentation repository</span>
+</a>
+</div>
 </section>
 
-<div class="footer">
+</main>
 
-Edge Vibe — ESE5160 Final Project
-
-</div>
+<footer class="footer">
+Edge Vibe - ESE5160 Final Project - Team 16
+</footer>
 
 <script>
 const pcbGalleryButton = document.getElementById('pcbGalleryButton');
